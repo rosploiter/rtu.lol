@@ -1,151 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Coming Soon!</title>
-        <style>
-            ::-moz-selection {
-                background: #b3d4fc;
-                text-shadow: none;
-            }
-
-            ::selection {
-                background: #b3d4fc;
-                text-shadow: none;
-            }
-
-            html {
-                padding: 30px 10px;
-                font-size: 20px;
-                line-height: 1.4;
-                color: #737373;
-                background: #f0f0f0;
-                -webkit-text-size-adjust: 100%;
-                -ms-text-size-adjust: 100%;
-            }
-
-            html,
-            input {
-                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-            }
-
-            body {
-                max-width: 500px;
-                _width: 500px;
-                padding: 30px 20px 50px;
-                border: 1px solid #b3b3b3;
-                border-radius: 4px;
-                margin: 0 auto;
-                box-shadow: 0 1px 10px #a7a7a7, inset 0 1px 0 #fff;
-                background: #fcfcfc;
-            }
-
-            h1 {
-                margin: 0 10px;
-                font-size: 50px;
-                text-align: center;
-            }
-
-            h1 span {
-                color: #bbb;
-            }
-
-            h3 {
-                margin: 1.5em 0 0.5em;
-            }
-
-            p {
-                margin: 1em 0;
-            }
-
-            ul {
-                padding: 0 0 0 40px;
-                margin: 1em 0;
-            }
-
-            .container {
-                max-width: 380px;
-                _width: 380px;
-                margin: 0 auto;
-            }
-
-            /* google search */
-
-            #goog-fixurl ul {
-                list-style: none;
-                padding: 0;
-                margin: 0;
-            }
-
-            #goog-fixurl form {
-                margin: 0;
-            }
-
-            #goog-wm-qt,
-            #goog-wm-sb {
-                border: 1px solid #bbb;
-                font-size: 16px;
-                line-height: normal;
-                vertical-align: top;
-                color: #444;
-                border-radius: 2px;
-            }
-
-            #goog-wm-qt {
-                width: 220px;
-                height: 20px;
-                padding: 5px;
-                margin: 5px 10px 0 0;
-                box-shadow: inset 0 1px 1px #ccc;
-            }
-
-            #goog-wm-sb {
-                display: inline-block;
-                height: 32px;
-                padding: 0 10px;
-                margin: 5px 0 0;
-                white-space: nowrap;
-                cursor: pointer;
-                background-color: #f5f5f5;
-                background-image: -webkit-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-                background-image: -moz-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-                background-image: -ms-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-                background-image: -o-linear-gradient(rgba(255,255,255,0), #f1f1f1);
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                appearance: none;
-                *overflow: visible;
-                *display: inline;
-                *zoom: 1;
-            }
-
-            #goog-wm-sb:hover,
-            #goog-wm-sb:focus {
-                border-color: #aaa;
-                box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
-                background-color: #f8f8f8;
-            }
-
-            #goog-wm-qt:hover,
-            #goog-wm-qt:focus {
-                border-color: #105cb6;
-                outline: 0;
-                color: #222;
-            }
-
-            input::-moz-focus-inner {
-                padding: 0;
-                border: 0;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <h1>Site is not public yet.<span>:(</span></h1>
-            <script>
-                var GOOG_FIXURL_LANG = (navigator.language || '').slice(0,2),GOOG_FIXURL_SITE = location.host;
-            </script>
-            <script src="//linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Trolling Union</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        #sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #979494;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        #content {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .menu-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+        .menu-item:hover {
+            background-color: #ddd;
+        }
+        .guide-list {
+            display: none;
+        }
+        .guide-item {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h3 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <div class="menu-item" onclick="toggleMenu('main')">Main</div>
+        <div class="menu-item" onclick="toggleMenu('leaked-guides')">Leaked Guides</div>
+        <div class="menu-item" onclick="toggleMenu('raids')">Raids</div>
+    </div>
+    <div id="content">
+        <div id="main" class="guide-list">
+            <h2>Welcome to the Main Page for RTU Official Site! This is still a work in progress :)</h2>
+            <p></p>
         </div>
-    </body>
+        <div id="leaked-guides" class="guide-list">
+            <h2>Leaked Guides</h2>
+
+            <h3>Washiez</h3>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1nqaafUN-v4-xE3F4lfK4X2p_fwEBjZV2qL3p04FwTSM/edit#heading=h.jduc3gs8dlzu">TRAINING HOST</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/15reP-2vdiQ0wRTTejvz-De-VUxpTd4t-C1lqSeY2xyg/edit#heading=h.jduc3gs8dlzu">TRAINING GUIDE</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1gFcLOynTDgovxsqBJyNQ5lwtLaHKb-lM7ukfYIv24Ns/edit#heading=h.jduc3gs8dlzu">DIRECTOR INFO</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1Dynjx2U2wZr0A287s3pTR6DvFPfIW9XkjzsWA5PwdbE/edit">HRD INFO</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1MNZ-aYeoVlolggUvkbTj6QAoiw2O-CFgKBe7dOy-pYQ/edit#heading=h.jduc3gs8dlzu">OPD INFO</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1g-d_mICwdGau5zpDYoPhZ-d3uelEfnGGX4JSrw_sZSg/edit#heading=h.jduc3gs8dlzu">PRD INFO</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1_mJsafpZ_QD-DanIhJeI4FKUkRbVfC0rSTQotHmSXKI/edit#heading=h.jduc3gs8dlzu">CONSEQUENTIAL GUIDE</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1M1AAF4x1sFOOJ-tkBgMFrN6FRUANzizeg5WtEcrNpqw/edit#heading=h.jduc3gs8dlzu">PUNISHMENT INFORMATION</a></div>
+            <div class="guide-item"><a href="https://trello.com/b/EEAZcVHw/washiez-compliance">WAHSIEZ COMPLIANCE</a></div>
+            <div class="guide-item"><a href="https://forms.gle/P7BgC3iFwN3PdrH29">OPD QUIZ</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/forms/d/e/1FAIpQLScosZWU8fqJUzZEAIMq0zwo7605ji6H3TseoNw_fpso0_4Jag/viewform">CAO CONTACT FORM</a></div>
+
+            <h3>Los Angeles Airways</h3>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1WeGVC0SJomeWGqOzcc7FO5PcXYdfYGqd1T7x6-W9c5U/edit">Server Moderator Guide</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1N9dws2IHTUcHcZGmyrvpllqoWZm-6JuuVoHs2Ws2C5c/edit">Training Guide</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1-23mQ3i1z4n-MlEP2h4pYErtV2KrkJqcGKlFHJH-YMk/edit">Test Flight Guide</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1E8UDC_L0s6d36MvMsDzfVuZIxYL_JKaK3w-DYUn5dB8/edit#heading=h.1k4wnp23enjz">Flight Hosting Guide</a></div>
+
+            <h3>Work at a Pancake Place (Breakfast House)</h3>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1qLfHNtMWc7wwTDWNszbmA6dveXKEba8zZi0t4jq1qD0/edit?usp=sharing">Host/Co-Host Shift Guide (BH)</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1nabaW_mxO0tvtIFvq-0_lCCg_CFVJHMDInTKcW40k9k/edit?usp=sharing">Host/Co-Host Training Guide (BH)</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1FVFib9i6ZSLGfeK3Kks_QVN7yOEqv0AKVgWtYFwP32I/edit?usp=sharing">Instructor/Trainer Guide (BH)</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1ViKNw_dsDx7WnuSktjefqT2kpHyujQY_IPuRYC6brwY/edit?usp=sharing">Minigame Scripts (BH)</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1bXhJ70s4gLECtevZ1Jh_wQjLc_q5J5zJo_hfEBhyzHY/edit">In-game Moderation Guide (BH)</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/13B6ezHqjVawiXPXPnFtwADdiuQhwigdYf2W1WasvZAQ/edit">Admin Abuse Guide (BH)</a></div>
+
+            <h3>Vinns Hotel</h3>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1V4PoYUDtKVS1KgLa4-QuWsuAWxTvf_dEr6dProKO90g/edit?usp=sharing">Senior Staff Training Guide 2022</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1i2pBYF0yug2IXoaJ_nXw4lSSVxBtzuveKD49-UdtmOk/edit?usp=sharing">Junior Staff Training Guide 2022</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/14khqL7DwZQWfrSQBztlredyrZoO5qb-xVOZA4kM-zgQ/edit?usp=sharing">Concierge Training Guide 2022</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1np8w7e_CGaoJ5xVnM1fhOCFmFowDOpGksoyPDlcwI7c/edit?usp=sharing">Housekeeping Training Guide 2022</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/17LTBCigDogm4GnyJ0Wr3VPOHRoeLvmeeo1v1tDGpqjg/edit?usp=sharing">Receptionist Training Guide 2022</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1SV0HPqnjuA3BCHZpkcSdRW_foZkeu5-ncb6b2rHfGHY/edit?usp=sharing">Host/Co-Host Training Guide 2022</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1-gOABVKM7MYDb0sjKFbDANOJABgMm8rOAgq5HiVOwY4/edit">Training Protocols 2022</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1sFUaqpxUC6zCu0WufhVdhivR6N_21_gRUCjo1RM0cgE/edit">Staff Information 2023</a></div>
+
+            <h3>RoMart</h3>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1muPeGKd-f4n7uCYsu8QqVdSeMqYxdaxjsUXyRotpc9g/edit">RoMart Trainer Docs (ONLY FOR TRAINERS NOT HOSTS)</a></div>
+
+            <h3>Restaurant Roleplay</h3>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1xVn_PHZ4dhefEh5zQZHzKQK1AxHSOzlTat9GeD4dgXs/edit#heading=h.beyk8ec4bk96">Restaurant Roleplay training guide (host, assistant included)</a></div>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/170v1_cPk0YCO_Ll7gAquDjJ3D0dveH71OaFu-mEuxLM/edit">Restaurant roleplay management book</a></div>
+
+            <h3>Emerald Theatre</h3>
+            <div class="guide-item"><a href="https://docs.google.com/document/d/1-1R-vn7d5UitiOb5i_78jw97tW7CyZW3qZldHTZchpE/edit">EMERALD THEATRE GUIDE - TRAINING GUIDE</a></div>
+        </div>
+        <div id="raids" class="guide-list">
+            <h2>Raids</h2>
+            <p>Raid information will be displayed here.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu(menuId) {
+            const menus = document.getElementsByClassName('guide-list');
+            for (let menu of menus) {
+                menu.style.display = 'none';
+            }
+            document.getElementById(menuId).style.display = 'block';
+        }
+    </script>
+</body>
 </html>
