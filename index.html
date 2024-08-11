@@ -3,32 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Trolling Union</title>
+    <title>RTU</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             display: flex;
+            background-color: #262626;
+            color: #e0e0e0;
         }
         #sidebar {
             width: 250px;
             height: 100vh;
-            background-color: #979494;
+            background-color: #1e1e1e;
             padding: 20px;
             overflow-y: auto;
+            position: fixed;
+            left: 0;
+            top: 0;
+            box-sizing: border-box;
         }
         #content {
             flex-grow: 1;
             padding: 20px;
             overflow-y: auto;
+            background-color: #262626;
+            margin-left: 250px;
+            box-sizing: border-box;
         }
         .menu-item {
             padding: 10px;
             cursor: pointer;
+            color: #bb86fc;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
         .menu-item:hover {
-            background-color: #ddd;
+            background-color: #3a3a3a;
+        }
+        .menu-item.active {
+            background-color: #3a3a3a;
+            color: #ffffff;
         }
         .guide-list {
             display: none;
@@ -37,83 +54,138 @@
             margin-bottom: 10px;
         }
         a {
-            color: #0066cc;
+            color: #bb86fc;
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
+            color: #d7b8ff;
+        }
+        h2 {
+            color: #cf6679;
         }
         h3 {
             margin-top: 20px;
             margin-bottom: 10px;
+            color: #03dac6;
+        }
+        p {
+            line-height: 1.6;
         }
     </style>
 </head>
 <body>
     <div id="sidebar">
-        <div class="menu-item" onclick="toggleMenu('main')">Main</div>
+        <div class="menu-item active" onclick="toggleMenu('main')">Main</div>
         <div class="menu-item" onclick="toggleMenu('leaked-guides')">Leaked Guides</div>
         <div class="menu-item" onclick="toggleMenu('raids')">Raids</div>
     </div>
-    <div id="content">
-        <div id="main" class="guide-list">
-            <h2>Welcome to the Main Page for RTU Official Site! This is still a work in progress :)</h2>
-            <p></p>
-        </div>
-        <div id="leaked-guides" class="guide-list">
-            <h2>Leaked Guides</h2>
-
-            <h3>Washiez</h3>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1nqaafUN-v4-xE3F4lfK4X2p_fwEBjZV2qL3p04FwTSM/edit#heading=h.jduc3gs8dlzu">TRAINING HOST</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/15reP-2vdiQ0wRTTejvz-De-VUxpTd4t-C1lqSeY2xyg/edit#heading=h.jduc3gs8dlzu">TRAINING GUIDE</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1gFcLOynTDgovxsqBJyNQ5lwtLaHKb-lM7ukfYIv24Ns/edit#heading=h.jduc3gs8dlzu">DIRECTOR INFO</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1Dynjx2U2wZr0A287s3pTR6DvFPfIW9XkjzsWA5PwdbE/edit">HRD INFO</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1MNZ-aYeoVlolggUvkbTj6QAoiw2O-CFgKBe7dOy-pYQ/edit#heading=h.jduc3gs8dlzu">OPD INFO</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1g-d_mICwdGau5zpDYoPhZ-d3uelEfnGGX4JSrw_sZSg/edit#heading=h.jduc3gs8dlzu">PRD INFO</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1_mJsafpZ_QD-DanIhJeI4FKUkRbVfC0rSTQotHmSXKI/edit#heading=h.jduc3gs8dlzu">CONSEQUENTIAL GUIDE</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1M1AAF4x1sFOOJ-tkBgMFrN6FRUANzizeg5WtEcrNpqw/edit#heading=h.jduc3gs8dlzu">PUNISHMENT INFORMATION</a></div>
-            <div class="guide-item"><a href="https://trello.com/b/EEAZcVHw/washiez-compliance">WAHSIEZ COMPLIANCE</a></div>
-            <div class="guide-item"><a href="https://forms.gle/P7BgC3iFwN3PdrH29">OPD QUIZ</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/forms/d/e/1FAIpQLScosZWU8fqJUzZEAIMq0zwo7605ji6H3TseoNw_fpso0_4Jag/viewform">CAO CONTACT FORM</a></div>
-
-            <h3>Los Angeles Airways</h3>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1WeGVC0SJomeWGqOzcc7FO5PcXYdfYGqd1T7x6-W9c5U/edit">Server Moderator Guide</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1N9dws2IHTUcHcZGmyrvpllqoWZm-6JuuVoHs2Ws2C5c/edit">Training Guide</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1-23mQ3i1z4n-MlEP2h4pYErtV2KrkJqcGKlFHJH-YMk/edit">Test Flight Guide</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1E8UDC_L0s6d36MvMsDzfVuZIxYL_JKaK3w-DYUn5dB8/edit#heading=h.1k4wnp23enjz">Flight Hosting Guide</a></div>
-
-            <h3>Work at a Pancake Place (Breakfast House)</h3>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1qLfHNtMWc7wwTDWNszbmA6dveXKEba8zZi0t4jq1qD0/edit?usp=sharing">Host/Co-Host Shift Guide (BH)</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1nabaW_mxO0tvtIFvq-0_lCCg_CFVJHMDInTKcW40k9k/edit?usp=sharing">Host/Co-Host Training Guide (BH)</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1FVFib9i6ZSLGfeK3Kks_QVN7yOEqv0AKVgWtYFwP32I/edit?usp=sharing">Instructor/Trainer Guide (BH)</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1ViKNw_dsDx7WnuSktjefqT2kpHyujQY_IPuRYC6brwY/edit?usp=sharing">Minigame Scripts (BH)</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1bXhJ70s4gLECtevZ1Jh_wQjLc_q5J5zJo_hfEBhyzHY/edit">In-game Moderation Guide (BH)</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/13B6ezHqjVawiXPXPnFtwADdiuQhwigdYf2W1WasvZAQ/edit">Admin Abuse Guide (BH)</a></div>
-
-            <h3>Vinns Hotel</h3>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1V4PoYUDtKVS1KgLa4-QuWsuAWxTvf_dEr6dProKO90g/edit?usp=sharing">Senior Staff Training Guide 2022</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1i2pBYF0yug2IXoaJ_nXw4lSSVxBtzuveKD49-UdtmOk/edit?usp=sharing">Junior Staff Training Guide 2022</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/14khqL7DwZQWfrSQBztlredyrZoO5qb-xVOZA4kM-zgQ/edit?usp=sharing">Concierge Training Guide 2022</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1np8w7e_CGaoJ5xVnM1fhOCFmFowDOpGksoyPDlcwI7c/edit?usp=sharing">Housekeeping Training Guide 2022</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/17LTBCigDogm4GnyJ0Wr3VPOHRoeLvmeeo1v1tDGpqjg/edit?usp=sharing">Receptionist Training Guide 2022</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1SV0HPqnjuA3BCHZpkcSdRW_foZkeu5-ncb6b2rHfGHY/edit?usp=sharing">Host/Co-Host Training Guide 2022</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1-gOABVKM7MYDb0sjKFbDANOJABgMm8rOAgq5HiVOwY4/edit">Training Protocols 2022</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1sFUaqpxUC6zCu0WufhVdhivR6N_21_gRUCjo1RM0cgE/edit">Staff Information 2023</a></div>
-
-            <h3>RoMart</h3>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1muPeGKd-f4n7uCYsu8QqVdSeMqYxdaxjsUXyRotpc9g/edit">RoMart Trainer Docs (ONLY FOR TRAINERS NOT HOSTS)</a></div>
-
-            <h3>Restaurant Roleplay</h3>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1xVn_PHZ4dhefEh5zQZHzKQK1AxHSOzlTat9GeD4dgXs/edit#heading=h.beyk8ec4bk96">Restaurant Roleplay training guide (host, assistant included)</a></div>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/170v1_cPk0YCO_Ll7gAquDjJ3D0dveH71OaFu-mEuxLM/edit">Restaurant roleplay management book</a></div>
-
-            <h3>Emerald Theatre</h3>
-            <div class="guide-item"><a href="https://docs.google.com/document/d/1-1R-vn7d5UitiOb5i_78jw97tW7CyZW3qZldHTZchpE/edit">EMERALD THEATRE GUIDE - TRAINING GUIDE</a></div>
-        </div>
-        <div id="raids" class="guide-list">
-            <h2>Raids</h2>
-            <p>Raid information will be displayed here.</p>
-        </div>
+        <div id="content">
+            <div id="main" class="guide-list">
+                <h2>Welcome to the RTU Official Site</h2>
+                <h3>About the Roblox Trolling Union</h3>
+                <p>The Roblox Trolling Union (RTU) is a dynamic and active community dedicated to organizing and executing coordinated trolling activities across various Roblox games. Our mission is to bring excitement, unpredictability, and a touch of chaos to the Roblox gaming experience.</p>
+                
+                <p>At RTU, we believe in the power of collective action. Our community is built on the principles of teamwork, creativity, and pushing the boundaries of in-game interactions. We strive to create memorable experiences not just for our members, but also for the unsuspecting players we encounter during our operations.</p>
+                
+                <h3>What We Do</h3>
+                <p>The heart of RTU's activities lies in our daily raids. Every single day, without fail, we organize and execute targeted raids on various Roblox games. These daily operations serve as a training ground for our members, allowing them to hone their trolling skills, learn new techniques, and bond with fellow RTU members.</p>
+                
+                <p>But that's not all - we take things to the next level with our massive raids. Every few days, we pull out all the stops and launch large-scale operations that involve a significant portion of our community. These massive raids are the crown jewel of our activities, often targeting one or more popular games simultaneously.</p>
+                
+                <h3>Communication and Coordination</h3>
+                <p>To ensure maximum participation and impact, we utilize the @everyone ping for our massive raids. This allows us to mobilize our entire community quickly and efficiently. The coordination and synchronized actions of our members during these events are truly a sight to behold.</p>
+                
+                <h3>Join the Fun</h3>
+                <p>Whether you're a seasoned troller or new to the scene, RTU welcomes all who share our passion for creative mischief in the Roblox universe. Join us for exciting and coordinated trolling activities that will leave a lasting impression on the games we visit.</p>
+                
+                <p>Remember, at RTU, we're not just playing games - we're creating unforgettable moments and pushing the boundaries of what's possible in Roblox. Are you ready to be part of something bigger?</p>
+            </div>
+            <div id="leaked-guides" class="guide-list">
+                <h2>Leaked Guides</h2>
+    
+                <h3>Washiez</h3>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1nqaafUN-v4-xE3F4lfK4X2p_fwEBjZV2qL3p04FwTSM/edit#heading=h.jduc3gs8dlzu">TRAINING HOST</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/15reP-2vdiQ0wRTTejvz-De-VUxpTd4t-C1lqSeY2xyg/edit#heading=h.jduc3gs8dlzu">TRAINING GUIDE</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1gFcLOynTDgovxsqBJyNQ5lwtLaHKb-lM7ukfYIv24Ns/edit#heading=h.jduc3gs8dlzu">DIRECTOR INFO</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1Dynjx2U2wZr0A287s3pTR6DvFPfIW9XkjzsWA5PwdbE/edit">HRD INFO</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1MNZ-aYeoVlolggUvkbTj6QAoiw2O-CFgKBe7dOy-pYQ/edit#heading=h.jduc3gs8dlzu">OPD INFO</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1g-d_mICwdGau5zpDYoPhZ-d3uelEfnGGX4JSrw_sZSg/edit#heading=h.jduc3gs8dlzu">PRD INFO</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1_mJsafpZ_QD-DanIhJeI4FKUkRbVfC0rSTQotHmSXKI/edit#heading=h.jduc3gs8dlzu">CONSEQUENTIAL GUIDE</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1M1AAF4x1sFOOJ-tkBgMFrN6FRUANzizeg5WtEcrNpqw/edit#heading=h.jduc3gs8dlzu">PUNISHMENT INFORMATION</a></div>
+                <div class="guide-item"><a href="https://trello.com/b/EEAZcVHw/washiez-compliance">WAHSIEZ COMPLIANCE</a></div>
+                <div class="guide-item"><a href="https://forms.gle/P7BgC3iFwN3PdrH29">OPD QUIZ</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/forms/d/e/1FAIpQLScosZWU8fqJUzZEAIMq0zwo7605ji6H3TseoNw_fpso0_4Jag/viewform">CAO CONTACT FORM</a></div>
+    
+                <h3>Los Angeles Airways</h3>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1WeGVC0SJomeWGqOzcc7FO5PcXYdfYGqd1T7x6-W9c5U/edit">Server Moderator Guide</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1N9dws2IHTUcHcZGmyrvpllqoWZm-6JuuVoHs2Ws2C5c/edit">Training Guide</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1-23mQ3i1z4n-MlEP2h4pYErtV2KrkJqcGKlFHJH-YMk/edit">Test Flight Guide</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1E8UDC_L0s6d36MvMsDzfVuZIxYL_JKaK3w-DYUn5dB8/edit#heading=h.1k4wnp23enjz">Flight Hosting Guide</a></div>
+    
+                <h3>Work at a Pancake Place (Breakfast House)</h3>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1qLfHNtMWc7wwTDWNszbmA6dveXKEba8zZi0t4jq1qD0/edit?usp=sharing">Host/Co-Host Shift Guide (BH)</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1nabaW_mxO0tvtIFvq-0_lCCg_CFVJHMDInTKcW40k9k/edit?usp=sharing">Host/Co-Host Training Guide (BH)</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1FVFib9i6ZSLGfeK3Kks_QVN7yOEqv0AKVgWtYFwP32I/edit?usp=sharing">Instructor/Trainer Guide (BH)</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1ViKNw_dsDx7WnuSktjefqT2kpHyujQY_IPuRYC6brwY/edit?usp=sharing">Minigame Scripts (BH)</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1bXhJ70s4gLECtevZ1Jh_wQjLc_q5J5zJo_hfEBhyzHY/edit">In-game Moderation Guide (BH)</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/13B6ezHqjVawiXPXPnFtwADdiuQhwigdYf2W1WasvZAQ/edit">Admin Abuse Guide (BH)</a></div>
+    
+                <h3>Vinns Hotel</h3>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1V4PoYUDtKVS1KgLa4-QuWsuAWxTvf_dEr6dProKO90g/edit?usp=sharing">Senior Staff Training Guide 2022</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1i2pBYF0yug2IXoaJ_nXw4lSSVxBtzuveKD49-UdtmOk/edit?usp=sharing">Junior Staff Training Guide 2022</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/14khqL7DwZQWfrSQBztlredyrZoO5qb-xVOZA4kM-zgQ/edit?usp=sharing">Concierge Training Guide 2022</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1np8w7e_CGaoJ5xVnM1fhOCFmFowDOpGksoyPDlcwI7c/edit?usp=sharing">Housekeeping Training Guide 2022</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/17LTBCigDogm4GnyJ0Wr3VPOHRoeLvmeeo1v1tDGpqjg/edit?usp=sharing">Receptionist Training Guide 2022</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1SV0HPqnjuA3BCHZpkcSdRW_foZkeu5-ncb6b2rHfGHY/edit?usp=sharing">Host/Co-Host Training Guide 2022</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1-gOABVKM7MYDb0sjKFbDANOJABgMm8rOAgq5HiVOwY4/edit">Training Protocols 2022</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1sFUaqpxUC6zCu0WufhVdhivR6N_21_gRUCjo1RM0cgE/edit">Staff Information 2023</a></div>
+    
+                <h3>RoMart</h3>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1muPeGKd-f4n7uCYsu8QqVdSeMqYxdaxjsUXyRotpc9g/edit">RoMart Trainer Docs (ONLY FOR TRAINERS NOT HOSTS)</a></div>
+    
+                <h3>Restaurant Roleplay</h3>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1xVn_PHZ4dhefEh5zQZHzKQK1AxHSOzlTat9GeD4dgXs/edit#heading=h.beyk8ec4bk96">Restaurant Roleplay training guide (host, assistant included)</a></div>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/170v1_cPk0YCO_Ll7gAquDjJ3D0dveH71OaFu-mEuxLM/edit">Restaurant roleplay management book</a></div>
+    
+                <h3>Emerald Theatre</h3>
+                <div class="guide-item"><a href="https://docs.google.com/document/d/1-1R-vn7d5UitiOb5i_78jw97tW7CyZW3qZldHTZchpE/edit">EMERALD THEATRE GUIDE - TRAINING GUIDE</a></div>
+            </div>
+            <div id="raids" class="guide-list">
+                <h2>Raids Information</h2>
+                <h3>Daily Raids</h3>
+                <p>Every day, the Roblox Trolling Union organizes targeted raids on various Roblox games. These daily raids serve multiple purposes:</p>
+                <ul>
+                    <li>Provide consistent trolling opportunities for our members</li>
+                    <li>Allow members to practice and refine their trolling techniques</li>
+                    <li>Keep our community active and engaged</li>
+                    <li>Explore new potential targets for larger operations</li>
+                </ul>
+                <p>Daily raids are typically smaller in scale but still pack a punch. They're perfect for members who want to participate regularly and maintain their trolling skills.</p>
+    
+                <h3>Massive Raids</h3>
+                <p>Every few days, RTU launches massive, large-scale raids. These are our premier events and involve a significant portion of our community. Key features of massive raids include:</p>
+                <ul>
+                    <li>Targeting one or more popular Roblox games simultaneously</li>
+                    <li>Utilizing the @everyone ping to ensure maximum participation</li>
+                    <li>Coordinated actions and synchronized trolling techniques</li>
+                    <li>Potential for viral moments and significant impact on the target game(s)</li>
+                </ul>
+                <p>Massive raids are the highlight of RTU activities and often result in memorable experiences for both our members and the players we encounter.</p>
+    
+                <h3>Raid Planning and Execution</h3>
+                <p>Our raids are meticulously planned to ensure maximum impact and entertainment. The process typically involves:</p>
+                <ol>
+                    <li>Target selection based on popularity, vulnerability, and potential for amusing reactions</li>
+                    <li>Strategy development tailored to the specific game and its mechanics</li>
+                    <li>Assigning roles to participants for coordinated actions</li>
+                    <li>Briefing members on the plan and any specific techniques to be used</li>
+                    <li>Executing the raid with precision timing</li>
+                    <li>Post-raid debriefing and sharing of highlights</li>
+                </ol>
+                <h3>Join Our Next Raid!</h3>
+                <p>Interested in participating? Keep an eye on our announcements for information about upcoming raids, both daily and massive. Remember, the more, the merrier - and the more impactful our operations become!</p>
+            </div>
     </div>
 
     <script>
@@ -123,7 +195,16 @@
                 menu.style.display = 'none';
             }
             document.getElementById(menuId).style.display = 'block';
+
+            const menuItems = document.getElementsByClassName('menu-item');
+            for (let item of menuItems) {
+                item.classList.remove('active');
+            }
+            event.target.classList.add('active');
         }
+
+        // Show main content by default
+        document.getElementById('main').style.display = 'block';
     </script>
 </body>
 </html>
