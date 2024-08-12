@@ -28,7 +28,57 @@
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
+        .flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem; /* add some margin bottom */
+}
 
+        .script-container {
+  position: relative;
+  padding: 1rem;
+  border: 1px solid #333;
+  border-radius: 0.5rem;
+  background-color: #333; /* dark gray background */
+  width: 1375px; /* increase the max-width to make the script box wider */
+  margin: 0 auto;
+  display: flex; /* add display flex to make the script and button inline */
+  justify-content: space-between; /* add space between the script and button */
+}
+
+.script-container pre {
+  font-family: 'Monaco', monospace;
+  font-size: 14px;
+  padding: 1rem;
+  white-space: nowrap; /* make the script display in one row */
+  overflow-x: hidden; /* hide the horizontal scrollbar */
+}
+
+.script-container code {
+  color: #fff; /* white text color to contrast with dark gray background */
+}
+
+.copy-btn {
+  position: relative; /* change to relative positioning */
+  margin-left: 1rem; /* add some space between the script and button */
+  font-size: 16px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #444; /* dark gray background for the button */
+  color: #fff;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background-color: #555; /* darker gray on hover */
+}
+
+.copy-btn i {
+  font-size: 16px;
+  margin-right: 0.5rem;
+}
         .fade-in.visible {
             opacity: 1;
         }
@@ -118,6 +168,7 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 16px;
             transition: transform 0.3s, box-shadow 0.3s;
+            
         }
 
         .modal-card:hover {
@@ -158,7 +209,8 @@
             </div>
             <ul class="flex space-x-4">
                 <li><a href="#" class="navbar-link" onclick="document.getElementById('Leaked Guides').scrollIntoView({ behavior: 'smooth' });">Leaked Guides</a></li>
-            </ul>
+                <li><a href="#" class="navbar-link" onclick="document.getElementById('Raid Times').scrollIntoView({ behavior: 'smooth' });">Raid Times</a></li>
+                <li><a href="#" class="navbar-link" onclick="document.getElementById('Scripts').scrollIntoView({ behavior: 'smooth' });">Scripts</a></li></ul>
         </div>
     </nav>
 
@@ -284,6 +336,51 @@
             </p>
           </div>
         </section>
+        <section id="Raid Times" class="container mx-auto spacing-features spacing-footer">
+            <h2 class="text-3xl font-bold text-center mb-10">Raid Times</h2>
+            <div class="flex flex-col items-center">
+                                <p class="text-2xl font-bold text-center" style="font-family: 'Poppins', sans-serif; margin-bottom: 20px;">No raids right now, Check back soon!</p>
+                          </div>
+            </section>
+            <section id="Scripts" class="container mx-auto spacing-features spacing-footer">
+                <h2 class="text-3xl font-bold text-center mb-10">Scripts</h2>
+                <div class="flex justify-center mb-8">
+                  <div class="flex flex-col items-center">
+                    <p class="text-2xl font-bold" style="font-family: 'Poppins', sans-serif; margin-bottom: 20px;">Fling Script</p>
+                    <div class="script-container">
+                      <pre><code class="language-lua" id="fling-script">loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'), true))()</code></pre>
+                      <button class="btn btn-sm btn-primary copy-btn" id="copy-btn"><i class="fa-solid fa-clipboard"></i></button>
+                    </div>
+                    <p class="text-2xl font-bold" style="font-family: 'Poppins', sans-serif; margin-bottom: 20px; margin-top: 20px;">Npc's Script</p>
+                    <div class="script-container">
+                      <pre><code class="language-lua" id="npc-script">loadstring(game:HttpGet('https://raw.githubusercontent.com/thepro1npc/randomscripts/main/script.lua'))()</code></pre>
+                      <button class="btn btn-sm btn-primary copy-btn" id="copy-btn"><i class="fa-solid fa-clipboard"></i></button>
+                    </div>
+                    <p class="text-2xl font-bold" style="font-family: 'Poppins', sans-serif; margin-bottom: 20px; margin-top: 20px;">MagikWare (Paid)</p>
+                    <div class="script-container">
+                      <pre><code class="language-lua" id="magikware-script">
+                        script_key="key here"; -- put your MagikWare key here. buy today at https://discord.gg/jbdbeSn89E
+                        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/fd074e64f928cc1bcf423f43a6eed899.lua"))()
+                      </code></pre>
+                      <button class="btn btn-sm btn-primary copy-btn" id="copy-btn"><i class="fa-solid fa-clipboard"></i></button>
+                    </div>
+                  </div>
+                </div>
+              </section>    
+              
+              <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+              <script>
+                const copyBtns = document.querySelectorAll('.copy-btn');
+                const scriptElements = document.querySelectorAll('.script-container code');
+              
+                copyBtns.forEach((btn, index) => {
+                  btn.addEventListener('click', () => {
+                    navigator.clipboard.writeText(scriptElements[index].textContent).then(() => {
+                      console.log('Script copied to clipboard!');
+                    });
+                  });
+                });
+              </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
