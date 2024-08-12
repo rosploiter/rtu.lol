@@ -1,228 +1,305 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RTU Website</title>
+    <title>RTU.lol</title>
+    <meta name="theme-color" content="#ff2d26">
+    <meta property="og:title" content="The RTU official site.">
+    <meta property="og:description" content="The RTU site.">
+    <meta property="og:image" content="https://media.discordapp.net/attachments/1223176100822253648/1268866388831768627/b2953801fc677a467915647e538b568c.png?ex=66adfb69&is=66aca9e9&hm=78b7d7c25cae73960b6dec1a95b2fbd2335ee99252ecf0cc4f5ac1cd79e68b31&=&format=webp&quality=lossless">
+    <meta property="og:type" content="website">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="https://media.discordapp.net/attachments/1249408171521347835/1258871365973577829/ROBLOX_TROLLING_UNION_2.gif?ex=66bb0f12&is=66b9bd92&hm=8e1926a797b9860e4aef9293c862d6f35d6c9c5e94e30bde1dc09a2147c8da09&=">
+    <script src="https://kit.fontawesome.com/ca42959301.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400&family=Montserrat:wght@400&family=Bebas+Neue&family=Poppins:wght@700&family=Lato:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            background-color: #262626;
-            color: #e0e0e0;
+            font-family: 'Oswald', sans-serif;
+            background: #0b0b0b;
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
-        #sidebar {
-            width: 250px;
-            height: 100vh;
-            background-color: #1e1e1e;
-            padding: 20px;
-            overflow-y: auto;
-            position: fixed;
-            left: 0;
-            top: 0;
-            box-sizing: border-box;
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
         }
-        #content {
-            flex-grow: 1;
-            padding: 20px;
-            overflow-y: auto;
-            background-color: #262626;
-            margin-left: 250px;
-            box-sizing: border-box;
+
+        .fade-in.visible {
+            opacity: 1;
         }
-        .menu-item {
-            padding: 10px;
-            cursor: pointer;
-            color: #bb86fc;
-            margin-bottom: 5px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+
+        .gradient-text {
+            background: linear-gradient(135deg, #ff0000 0%, #ff6363 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .menu-item:hover {
-            background-color: #3a3a3a;
+
+        .custom-button {
+            background-color: #0051ff;
+            color: white;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 9999px;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease;
         }
-        .menu-item.active {
-            background-color: #3a3a3a;
-            color: #ffffff;
+
+        .custom-button:hover {
+            background-color: #2562e7;
         }
-        .guide-list {
+        .custom-button2 {
+            background-color: #00c3ff;
+            color: white;
+            font-weight: bold;
+            padding: 12px 24px;
+            border-radius: 9999px   ;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-button2:hover {
+            background-color: #42bbe0;
+        }
+
+        .feature-card {
+            @apply p-6 bg-gray-900 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            @apply transform scale-105 transition-transform;
+        }
+
+        .showcase-img {
+            @apply shadow-lg transition-transform duration-300;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .showcase-img:hover {
+            @apply transform scale-105;
+        }
+
+        .logo-img {
+            border-radius: 1rem;
+        }
+
+        .spacing {
+            margin-top: 16rem;
+        }
+
+        .spacing-features {
+            margin-top: 24rem;
+        }
+
+        .spacing-footer {
+            margin-bottom: 25rem;
+        }
+
+        .star {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') no-repeat center center;
+            background-size: cover;
+            filter: drop-shadow(0 0 6px white);
+            z-index: -1;
+        }
+
+        .modal-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .modal-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar-link {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.2rem;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .navbar-link:hover {
+            color: #ff6363;
+        }
+
+        ::-webkit-scrollbar {
             display: none;
         }
-        .guide-item {
-            margin-bottom: 10px;
-        }
-        a {
-            color: #bb86fc;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-            color: #d7b8ff;
-        }
-        h2 {
-            color: #cf6679;
-        }
-        h3 {
-            margin-top: 20px;
-            margin-bottom: 10px;
-            color: #03dac6;
-        }
-        p {
-            line-height: 1.6;
+
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
-<body>
-    <div id="sidebar">
-        <div class="menu-item active" onclick="toggleMenu('main')">Main</div>
-        <div class="menu-item" onclick="toggleMenu('leaked-guides')">Leaked Guides</div>
-        <div class="menu-item" onclick="toggleMenu('raids')">Raids</div>
-    </div>
-        <div id="content">
-          <div id="main" class="guide-list">
-    <h2>Welcome to the RTU Official Site</h2>
-    <h3>About the Roblox Trolling Union</h3>
-    <p>The Roblox Trolling Union (RTU) is a dynamic and active community dedicated to organizing and executing coordinated trolling activities across various Roblox games. Our mission is to bring excitement, unpredictability, and a touch of chaos to the Roblox gaming experience.</p>
-    
-    <p>At RTU, we believe in the power of collective action. Our community is built on the principles of teamwork, creativity, and pushing the boundaries of in-game interactions. We strive to create memorable experiences not just for our members, but also for the unsuspecting players we encounter during our operations.</p>
-    
-    <h3>What We Do</h3>
-    <p>The heart of RTU's activities lies in our daily raids. Every single day, without fail, we organize and execute targeted raids on various Roblox games. These daily operations serve as a training ground for our members, allowing them to hone their trolling skills, learn new techniques, and bond with fellow RTU members.</p>
-    
-    <p>But that's not all - we take things to the next level with our massive raids. Every few days, we pull out all the stops and launch large-scale operations that involve a significant portion of our community. These massive raids are the crown jewel of our activities, often targeting one or more popular games simultaneously.</p>
-    
-    <h3>Communication and Coordination</h3>
-    <p>To ensure maximum participation and impact, we utilize the @everyone ping for our massive raids. This allows us to mobilize our entire community quickly and efficiently. The coordination and synchronized actions of our members during these events are truly a sight to behold.</p>
-    
-    <h3>Join the Fun</h3>
-    <p>Whether you're a seasoned troller or new to the scene, RTU welcomes all who share our passion for creative mischief in the Roblox universe. Join us for exciting and coordinated trolling activities that will leave a lasting impression on the games we visit.</p>
-    
-    <p>Remember, at RTU, we're not just playing games - we're creating unforgettable moments and pushing the boundaries of what's possible in Roblox. Are you ready to be part of something bigger?</p>
+<body class="fade-in">
 
-    
-    <h3>Join Us</h3>
-    <div style="margin-top: 20px;">
-        <a href="https://discord.gg/robloxtrollers" target="_blank" style="display: inline-block; margin-right: 10px;">
-            <button style="background-color: #7289DA; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">
-                <i class="fab fa-discord" style="margin-right: 5px;"></i> Join Discord
-            </button>
-        </a>
-        <a href="https://t.me/robloxtrollers" target="_blank">
-            <button style="background-color: #0088cc; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">
-                <i class="fab fa-telegram" style="margin-right: 5px;"></i> Join Telegram
-            </button>
-        </a>
-    </div>
+    <div id="stars-container"></div>
 
-    <p>© Copyright RTU.lol 2024</p>
-</div>
-            <div id="leaked-guides" class="guide-list">
-                <h2>Leaked Guides</h2>
-    
-                <h3>Washiez</h3>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1nqaafUN-v4-xE3F4lfK4X2p_fwEBjZV2qL3p04FwTSM/edit#heading=h.jduc3gs8dlzu">TRAINING HOST</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/15reP-2vdiQ0wRTTejvz-De-VUxpTd4t-C1lqSeY2xyg/edit#heading=h.jduc3gs8dlzu">TRAINING GUIDE</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1gFcLOynTDgovxsqBJyNQ5lwtLaHKb-lM7ukfYIv24Ns/edit#heading=h.jduc3gs8dlzu">DIRECTOR INFO</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1Dynjx2U2wZr0A287s3pTR6DvFPfIW9XkjzsWA5PwdbE/edit">HRD INFO</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1MNZ-aYeoVlolggUvkbTj6QAoiw2O-CFgKBe7dOy-pYQ/edit#heading=h.jduc3gs8dlzu">OPD INFO</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1g-d_mICwdGau5zpDYoPhZ-d3uelEfnGGX4JSrw_sZSg/edit#heading=h.jduc3gs8dlzu">PRD INFO</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1_mJsafpZ_QD-DanIhJeI4FKUkRbVfC0rSTQotHmSXKI/edit#heading=h.jduc3gs8dlzu">CONSEQUENTIAL GUIDE</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1M1AAF4x1sFOOJ-tkBgMFrN6FRUANzizeg5WtEcrNpqw/edit#heading=h.jduc3gs8dlzu">PUNISHMENT INFORMATION</a></div>
-                <div class="guide-item"><a href="https://trello.com/b/EEAZcVHw/washiez-compliance">WAHSIEZ COMPLIANCE</a></div>
-                <div class="guide-item"><a href="https://forms.gle/P7BgC3iFwN3PdrH29">OPD QUIZ</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/forms/d/e/1FAIpQLScosZWU8fqJUzZEAIMq0zwo7605ji6H3TseoNw_fpso0_4Jag/viewform">CAO CONTACT FORM</a></div>
-    
-                <h3>Los Angeles Airways</h3>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1WeGVC0SJomeWGqOzcc7FO5PcXYdfYGqd1T7x6-W9c5U/edit">Server Moderator Guide</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1N9dws2IHTUcHcZGmyrvpllqoWZm-6JuuVoHs2Ws2C5c/edit">Training Guide</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1-23mQ3i1z4n-MlEP2h4pYErtV2KrkJqcGKlFHJH-YMk/edit">Test Flight Guide</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1E8UDC_L0s6d36MvMsDzfVuZIxYL_JKaK3w-DYUn5dB8/edit#heading=h.1k4wnp23enjz">Flight Hosting Guide</a></div>
-    
-                <h3>Work at a Pancake Place (Breakfast House)</h3>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1qLfHNtMWc7wwTDWNszbmA6dveXKEba8zZi0t4jq1qD0/edit?usp=sharing">Host/Co-Host Shift Guide (BH)</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1nabaW_mxO0tvtIFvq-0_lCCg_CFVJHMDInTKcW40k9k/edit?usp=sharing">Host/Co-Host Training Guide (BH)</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1FVFib9i6ZSLGfeK3Kks_QVN7yOEqv0AKVgWtYFwP32I/edit?usp=sharing">Instructor/Trainer Guide (BH)</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1ViKNw_dsDx7WnuSktjefqT2kpHyujQY_IPuRYC6brwY/edit?usp=sharing">Minigame Scripts (BH)</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1bXhJ70s4gLECtevZ1Jh_wQjLc_q5J5zJo_hfEBhyzHY/edit">In-game Moderation Guide (BH)</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/13B6ezHqjVawiXPXPnFtwADdiuQhwigdYf2W1WasvZAQ/edit">Admin Abuse Guide (BH)</a></div>
-    
-                <h3>Vinns Hotel</h3>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1V4PoYUDtKVS1KgLa4-QuWsuAWxTvf_dEr6dProKO90g/edit?usp=sharing">Senior Staff Training Guide 2022</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1i2pBYF0yug2IXoaJ_nXw4lSSVxBtzuveKD49-UdtmOk/edit?usp=sharing">Junior Staff Training Guide 2022</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/14khqL7DwZQWfrSQBztlredyrZoO5qb-xVOZA4kM-zgQ/edit?usp=sharing">Concierge Training Guide 2022</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1np8w7e_CGaoJ5xVnM1fhOCFmFowDOpGksoyPDlcwI7c/edit?usp=sharing">Housekeeping Training Guide 2022</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/17LTBCigDogm4GnyJ0Wr3VPOHRoeLvmeeo1v1tDGpqjg/edit?usp=sharing">Receptionist Training Guide 2022</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1SV0HPqnjuA3BCHZpkcSdRW_foZkeu5-ncb6b2rHfGHY/edit?usp=sharing">Host/Co-Host Training Guide 2022</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1-gOABVKM7MYDb0sjKFbDANOJABgMm8rOAgq5HiVOwY4/edit">Training Protocols 2022</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1sFUaqpxUC6zCu0WufhVdhivR6N_21_gRUCjo1RM0cgE/edit">Staff Information 2023</a></div>
-    
-                <h3>RoMart</h3>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1muPeGKd-f4n7uCYsu8QqVdSeMqYxdaxjsUXyRotpc9g/edit">RoMart Trainer Docs (ONLY FOR TRAINERS NOT HOSTS)</a></div>
-    
-                <h3>Restaurant Roleplay</h3>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1xVn_PHZ4dhefEh5zQZHzKQK1AxHSOzlTat9GeD4dgXs/edit#heading=h.beyk8ec4bk96">Restaurant Roleplay training guide (host, assistant included)</a></div>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/170v1_cPk0YCO_Ll7gAquDjJ3D0dveH71OaFu-mEuxLM/edit">Restaurant roleplay management book</a></div>
-    
-                <h3>Emerald Theatre</h3>
-                <div class="guide-item"><a href="https://docs.google.com/document/d/1-1R-vn7d5UitiOb5i_78jw97tW7CyZW3qZldHTZchpE/edit">EMERALD THEATRE GUIDE - TRAINING GUIDE</a></div>
+    <nav class="p-4 rounded-b-lg bg-transparent z-10 relative">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://media.discordapp.net/attachments/1249408171521347835/1258871365973577829/ROBLOX_TROLLING_UNION_2.gif?ex=66bb0f12&is=66b9bd92&hm=8e1926a797b9860e4aef9293c862d6f35d6c9c5e94e30bde1dc09a2147c8da09&=" alt="RTU Logo" class="w-12 h-12 mr-3 logo-img">
+                <div class="text-2xl font-bold" style="font-family: 'Oswald', sans-serif;">Roblox Trolling Union</div>
             </div>
-            <div id="raids" class="guide-list">
-                <h2>Raids Information</h2>
-                <h3>Daily Raids</h3>
-                <p>Every day, the Roblox Trolling Union organizes targeted raids on various Roblox games. These daily raids serve multiple purposes:</p>
-                <ul>
-                    <li>Provide consistent trolling opportunities for our members</li>
-                    <li>Allow members to practice and refine their trolling techniques</li>
-                    <li>Keep our community active and engaged</li>
-                    <li>Explore new potential targets for larger operations</li>
-                </ul>
-                <p>Daily raids are typically smaller in scale but still pack a punch. They're perfect for members who want to participate regularly and maintain their trolling skills.</p>
-    
-                <h3>Massive Raids</h3>
-                <p>Every few days, RTU launches massive, large-scale raids. These are our premier events and involve a significant portion of our community. Key features of massive raids include:</p>
-                <ul>
-                    <li>Targeting one or more popular Roblox games simultaneously</li>
-                    <li>Utilizing the @everyone ping to ensure maximum participation</li>
-                    <li>Coordinated actions and synchronized trolling techniques</li>
-                    <li>Potential for viral moments and significant impact on the target game(s)</li>
-                </ul>
-                <p>Massive raids are the highlight of RTU activities and often result in memorable experiences for both our members and the players we encounter.</p>
-    
-                <h3>Raid Planning and Execution</h3>
-                <p>Our raids are meticulously planned to ensure maximum impact and entertainment. The process typically involves:</p>
-                <ol>
-                    <li>Target selection based on popularity, vulnerability, and potential for amusing reactions</li>
-                    <li>Strategy development tailored to the specific game and its mechanics</li>
-                    <li>Assigning roles to participants for coordinated actions</li>
-                    <li>Briefing members on the plan and any specific techniques to be used</li>
-                    <li>Executing the raid with precision timing</li>
-                    <li>Post-raid debriefing and sharing of highlights</li>
-                </ol>
-                <h3>Join Our Next Raid!</h3>
-                <p>Interested in participating? Keep an eye on our announcements for information about upcoming raids, both daily and massive. Remember, the more, the merrier - and the more impactful our operations become!</p>
-            </div>
-    </div>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="navbar-link" onclick="document.getElementById('Leaked Guides').scrollIntoView({ behavior: 'smooth' });">Leaked Guides</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="container mx-auto spacing flex flex-col md:flex-row items-center justify-center md:justify-between text-center md:text-left z-10 relative">
+        <div class="mb-10 md:mb-0">
+            <h1 class="text-5xl font-bold gradient-text mb-4" style="font-family: 'Poppins', sans-serif;">Roblox Trolling Union.</h1>
+            <p class="text-2xl mb-8" style="font-family: 'Montserrat', sans-serif;">Troll and Raid with us today!</p>
+            <a href="https://discord.gg/robloxtrollers" target="_blank" class="custom-button">Join Discord</a>
+            <a href="https://t.me/robloxtrollers" target="_blank" class="custom-button2">Join Telegram</a>
+        </div>
+        <div class="md:ml-10">
+            <img src="https://media.discordapp.net/attachments/1249408171521347835/1258871365973577829/ROBLOX_TROLLING_UNION_2.gif?ex=66bb0f12&is=66b9bd92&hm=8e1926a797b9860e4aef9293c862d6f35d6c9c5e94e30bde1dc09a2147c8da09&=" alt="RTU logo." class="w-64 h-64 mr-30 logo-img">>
+        </div>
+    </header>
+
+    <section id="Leaked Guides" class="container mx-auto spacing-features spacing-footer">
+        <h2 class="text-3xl font-bold text-center mb-10">Leaked Guides</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          <div class="modal-card feature-card">
+            <i class="fas fa-shield-alt text-4xl mb-4 gradient-text"></i>
+            <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">Washiez</h3>
+            <p style="font-family: 'Montserrat', sans-serif;">
+              <a href="https://docs.google.com/document/d/1nqaafUN-v4-xE3F4lfK4X2p_fwEBjZV2qL3p04FwTSM/edit#heading=h.jduc3gs8dlzu"  target="_blank"  style="color: rgb(0, 162, 255);" >TRAINING HOST</a>
+              <br>
+              <a href="https://docs.google.com/document/d/15reP-2vdiQ0wRTTejvz-De-VUxpTd4t-C1lqSeY2xyg/edit#heading=h.jduc3gs8dlzu"  target="_blank"  style="color: rgb(0, 162, 255);" >TRAINING GUIDE</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1gFcLOynTDgovxsqBJyNQ5lwtLaHKb-lM7ukfYIv24Ns/edit#heading=h.jduc3gs8dlzu"  target="_blank"  style="color: rgb(0, 162, 255);" >DIRECTOR INFO</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1Dynjx2U2wZr0A287s3pTR6DvFPfIW9XkjzsWA5PwdbE/edit"  target="_blank"  style="color: rgb(0, 162, 255);" >HRD INFO</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1MNZ-aYeoVlolggUvkbTj6QAoiw2O-CFgKBe7dOy-pYQ/edit#heading=h.jduc3gs8dlzu"  target="_blank"  style="color: rgb(0, 162, 255);" >OPD INFO</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1g-d_mICwdGau5zpDYoPhZ-d3uelEfnGGX4JSrw_sZSg/edit#heading=h.jduc3gs8dlzu"  target="_blank"  style="color: rgb(0, 162, 255);" >PRD INFO</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1_mJsafpZ_QD-DanIhJeI4FKUkRbVfC0rSTQotHmSXKI/edit#heading=h.jduc3gs8dlzu"  target="_blank"  style="color: rgb(0, 162, 255);" >CONSEQUENTIAL GUIDE</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1M1AAF4x1sFOOJ-tkBgMFrN6FRUANzizeg5WtEcrNpqw/edit#heading=h.jduc3gs8dlzu"  target="_blank"  style="color: rgb(0, 162, 255);" >PUNISHMENT INFORMATION</a>
+              <br>
+              <a href="https://trello.com/b/EEAZcVHw/washiez-compliance"  target="_blank"  style="color: rgb(0, 162, 255);" >WAHSIEZ COMPLIANCE</a>
+              <br>
+              <a href="https://forms.gle/P7BgC3iFwN3PdrH29"  target="_blank"  style="color: rgb(0, 162, 255);" >OPD QUIZ</a>
+              <br>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLScosZWU8fqJUzZEAIMq0zwo7605ji6H3TseoNw_fpso0_4Jag/viewform"  target="_blank"  style="color: rgb(0, 162, 255);" >CAO CONTACT FORM</a>
+            </p>
+          </div>
+          <div class="modal-card feature-card">
+            <i class="fas fa-bolt text-4xl mb-4 gradient-text"></i>
+            <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">Los Angeles Airways</h3>
+            <p style="font-family: 'Montserrat', sans-serif;">
+              <a href="https://docs.google.com/document/d/1WeGVC0SJomeWGqOzcc7FO5PcXYdfYGqd1T7x6-W9c5U/edit"  target="_blank"  style="color: rgb(0, 162, 255);" >Server Moderator Guide</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1N9dws2IHTUcHcZGmyrvpllqoWZm-6JuuVoHs2Ws2C5c/edit"  target="_blank"  style="color: rgb(0, 162, 255);" >Training Guide</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1-23mQ3i1z4n-MlEP2h4pYErtV2KrkJqcGKlFHJH-YMk/edit"  target="_blank"  style="color: rgb(0, 162, 255);" >Test Flight Guide</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1E8UDC_L0s6d36MvMsDzfVuZIxYL_JKaK3w-DYUn5dB8/edit#heading=h.1k4wnp23enjz"  target="_blank"  style="color: rgb(0, 162, 255);" >Flight Hosting Guide</a>
+              <br>
+            </p>
+          </div>
+          <div class="modal-card feature-card">
+            <i class="fas fa-sync-alt text-4xl mb-4 gradient-text"></i>
+            <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">Work at a Pancake Place (Breakfast House)</h3>
+            <p style="font-family: 'Montserrat', sans-serif;">
+              <a href="https://docs.google.com/document/d/1qLfHNtMWc7wwTDWNszbmA6dveXKEba8zZi0t4jq1qD0/edit?usp=sharing"  target="_blank"  style="color: rgb(0, 162, 255);" >Host/Co-Host Shift Guide (BH)</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1nabaW_mxO0tvtIFvq-0_lCCg_CFVJHMDInTKcW40k9k/edit?usp=sharing"  target="_blank"  style="color: rgb(0, 162, 255);" >Host/Co-Host Training Guide (BH)</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1FVFib9i6ZSLGfeK3Kks_QVN7yOEqv0AKVgWtYFwP32I/edit?usp=sharing"  target="_blank"  style="color: rgb(0, 162, 255);" >Instructor/Trainer Guide (BH)</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1ViKNw_dsDx7WnuSktjefqT2kpHyujQY_IPuRYC6brwY/edit?usp=sharing"  target="_blank"  style="color: rgb(0, 162, 255);" >Minigame Scripts (BH)</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1bXhJ70s4gLECtevZ1Jh_wQjLc_q5J5zJo_hfEBhyzHY/edit"  target="_blank"  style="color: rgb(0, 162, 255);" >In-game Moderation Guide (BH)</a>
+              <br>
+              <a href="https://docs.google.com/document/d/13B6ezHqjVawiXPXPnFtwADdiuQhwigdYf2W1WasvZAQ/edit" target="_blank"   style="color: rgb(0, 162, 255);" >Admin Abuse Guide (BH)</a>
+              <br>
+            </p>
+          </div>
+          <div class="modal-card feature-card">
+            <i class="fas fa-sync-alt text-4xl mb-4 gradient-text"></i>
+            <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">Vinns Hotel</h3>
+            <p style="font-family: 'Montserrat', sans-serif;">
+              <a href="https://docs.google.com/document/d/1V4PoYUDtKVS1KgLa4-QuWsuAWxTvf_dEr6dProKO90g/edit?usp=sharing"  target="_blank"  style="color: rgb(0, 162, 255);" >Senior Staff Training Guide 2022</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1i2pBYF0yug2IXoaJ_nXw4lSSVxBtzuveKD49-UdtmOk/edit?usp=sharing"  target="_blank"  style="color: rgb(0, 162, 255);" >Junior Staff Training Guide 2022</a>
+              <br>
+              <a href="https://docs.google.com/document/d/14khqL7DwZQWfrSQBztlredyrZoO5qb-xVOZA4kM-zgQ/edit?usp=sharing"  target="_blank"  style="color: rgb(0, 162, 255);" >Concierge Training Guide 2022</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1np8w7e_CGaoJ5xVnM1fhOCFmFowDOpGksoyPDlcwI7c/edit?usp=sharing"  target="_blank"  style="color: rgb(0, 162, 255);" >Housekeeping Training Guide 2022</a>
+              <br>
+              <a href="https://docs.google.com/document/d/17LTBCigDogm4GnyJ0Wr3VPOHRoeLvmeeo1v1tDGpqjg/edit?usp=sharing"  target="_blank"  style="color: rgb(0, 162, 255);" >Receptionist Training Guide 2022</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1SV0HPqnjuA3BCHZpkcSdRW_foZkeu5-ncb6b2rHfGHY/edit?usp=sharing"  target="_blank"  style="color: rgb(0, 162, 255);" >Host/Co-Host Training Guide 2022</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1-gOABVKM7MYDb0sjKFbDANOJABgMm8rOAgq5HiVOwY4/edit"  target="_blank"  style="color: rgb(0, 162, 255);" >Training Protocols 2022</a>
+              <br>
+              <a href="https://docs.google.com/document/d/1sFUaqpxUC6zCu0WufhVdhivR6N_21_gRUCjo1RM0cgE/edit"  target="_blank"  style="color: rgb(0, 162, 255);" >Staff Information 2023</a>
+            </p>
+          </div>
+          <div class="modal-card feature-card">
+            <i class="fas fa-sync-alt text-4xl mb-4 gradient-text"></i>
+            <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">RoMart</h3>
+            <p style="font-family: 'Montserrat', sans-serif;">
+              <a href="https://docs.google.com/document/d/1muPeGKd-f4n7uCYsu8QqVdSeMqYxdaxjsUXyRotpc9g/edit"  target="_blank"  style="color: rgb(0, 162, 255);" >RoMart Trainer Docs (ONLY FOR TRAINERS NOT HOSTS)</a>
+            </p>
+          </div>
+          <div class="modal-card feature-card">
+            <i class="fas fa-sync-alt text-4xl mb-4 gradient-text"></i>
+            <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">Restaurant Roleplay</h3>
+            <p style="font-family: 'Montserrat', sans-serif;">
+              <a href="https://docs.google.com/document/d/1xVn_PHZ4dhefEh5zQZHzKQK1AxHSOzlTat9GeD4dgXs/edit#heading=h.beyk8ec4bk96"  target="_blank"  style="color: rgb(0, 162, 255);" >Restaurant Roleplay training guide</a>
+              <br>
+              <a href="https://docs.google.com/document/d/170v1_cPk0YCO_Ll7gAquDjJ3D0dveH71OaFu-mEuxLM/edit"  target="_blank"  style="color: rgb(0, 162, 255);">Restaurant roleplay management book</a>            </p>
+          </div>
+          <div class="modal-card feature-card">
+            <i class="fas fa-sync-alt text-4xl mb-4 gradient-text"></i>
+            <h3 class="text-2xl font-bold mb-2" style="font-family: 'Roboto', sans-serif;">Emerald Theatre</h3>
+            <p style="font-family: 'Montserrat', sans-serif;">
+              <a href="https://docs.google.com/document/d/1-1R-vn7d5UitiOb5i_78jw97tW7CyZW3qZldHTZchpE/edit"  target="_blank"  style="color: rgb(0, 162, 255);" >EMERALD THEATRE GUIDE - TRAINING GUIDE</a>
+            </p>
+          </div>
+        </section>
 
     <script>
-        function toggleMenu(menuId) {
-            const menus = document.getElementsByClassName('guide-list');
-            for (let menu of menus) {
-                menu.style.display = 'none';
-            }
-            document.getElementById(menuId).style.display = 'block';
+        document.addEventListener("DOMContentLoaded", function() {
+            const starsContainer = document.getElementById('stars-container');
+            const numStars = 60;
 
-            const menuItems = document.getElementsByClassName('menu-item');
-            for (let item of menuItems) {
-                item.classList.remove('active');
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                star.style.top = Math.random() * document.body.scrollHeight + 'px';
+                star.style.left = Math.random() * window.innerWidth + 'px';
+                starsContainer.appendChild(star);
             }
-            event.target.classList.add('active');
-        }
 
-        // Show main content by default
-        document.getElementById('main').style.display = 'block';
+            document.body.style.opacity = '1';
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+        });
     </script>
+
 </body>
 </html>
