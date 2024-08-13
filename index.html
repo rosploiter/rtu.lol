@@ -195,10 +195,21 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        #cursor-follower {
+  width: 20px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s;
+}
     </style>
 </head>
 <body class="fade-in">
-
+  <div id="cursor-follower"></div>
     <div id="stars-container"></div>
 
     <nav class="p-4 rounded-b-lg bg-transparent z-10 relative">
@@ -341,44 +352,48 @@
                           </div>
             </section>
             <section id="Scripts" class="container mx-auto spacing-features spacing-footer">
-                <h2 class="text-3xl font-bold text-center mb-10">Scripts</h2>
-                <div class="flex justify-center mb-8">
-                  <div class="flex flex-col items-center">
-                    <p class="text-2xl font-bold" style="font-family: 'Poppins', sans-serif; margin-bottom: 20px;">Fling Script</p>
-                    <div class="script-container">
-                      <pre><code class="language-lua" id="fling-script">loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'), true))()</code></pre>
-                      <button class="btn btn-sm btn-primary copy-btn" id="copy-btn"><i class="fa-solid fa-clipboard"></i></button>
-                    </div>
-                    <p class="text-2xl font-bold" style="font-family: 'Poppins', sans-serif; margin-bottom: 20px; margin-top: 20px;">Npc's Script</p>
-                    <div class="script-container">
-                      <pre><code class="language-lua" id="npc-script">loadstring(game:HttpGet('https://raw.githubusercontent.com/thepro1npc/randomscripts/main/script.lua'))()</code></pre>
-                      <button class="btn btn-sm btn-primary copy-btn" id="copy-btn"><i class="fa-solid fa-clipboard"></i></button>
-                    </div>
-                    <p class="text-2xl font-bold" style="font-family: 'Poppins', sans-serif; margin-bottom: 20px; margin-top: 20px;">MagikWare (Paid)</p>
-                    <div class="script-container">
-                      <pre><code class="language-lua" id="magikware-script">
-                        script_key="key here"; -- put your MagikWare key here. buy today at https://discord.gg/jbdbeSn89E
-                        loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/fd074e64f928cc1bcf423f43a6eed899.lua"))()
-                      </code></pre>
-                      <button class="btn btn-sm btn-primary copy-btn" id="copy-btn"><i class="fa-solid fa-clipboard"></i></button>
-                    </div>
+              <h2 class="text-3xl font-bold text-center mb-10">Scripts</h2>
+              <div class="flex justify-center mb-8">
+                <div class="flex flex-col items-center">
+                  <p class="text-2xl font-bold" style="font-family: 'Poppins', sans-serif; margin-bottom: 20px;">Fling Script</p>
+                  <div class="script-container">
+                    <pre><code class="language-lua" id="fling-script">loadstring(game:HttpGet(('https://raw.githubusercontent.com/0Ben1/fe/main/obf_rf6iQURzu1fqrytcnLBAvW34C9N55kS9g9G3CKz086rC47M6632sEd4ZZYB0AYgV.lua.txt'), true))()</code></pre>
+                    <button class="btn btn-sm btn-primary copy-btn"><i class="fa-solid fa-clipboard"></i></button>
                   </div>
+                  <p class="text-2xl font-bold" style="font-family: 'Poppins', sans-serif; margin-bottom: 20px; margin-top: 20px;">Npc's Script</p>
+                  <div class="script-container">
+                    <pre><code class="language-lua" id="npc-script">loadstring(game:HttpGet('https://raw.githubusercontent.com/thepro1npc/randomscripts/main/script.lua'))()</code></pre>
+                    <button class="btn btn-sm btn-primary copy-btn"><i class="fa-solid fa-clipboard"></i></button>
+                  </div>
+                  <p class="text-2xl font-bold" style="font-family: 'Poppins', sans-serif; margin-bottom: 20px; margin-top: 20px;">MagikWare (Paid)</p>
+                  <div class="script-container">
+                    <pre><code class="language-lua" id="magikware-script">script_key="key here"; -- put your MagikWare key here. buy today at https://discord.gg/jbdbeSn89E
+            loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/fd074e64f928cc1bcf423f43a6eed899.lua"))()</code></pre>
+                    <button class="btn btn-sm btn-primary copy-btn"><i class="fa-solid fa-clipboard"></i></button>
+                  </div>                   
                 </div>
-              </section>    
-              
-              <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
-              <script>
-                const copyBtns = document.querySelectorAll('.copy-btn');
-                const scriptElements = document.querySelectorAll('.script-container code');
-              
-                copyBtns.forEach((btn, index) => {
-                  btn.addEventListener('click', () => {
-                    navigator.clipboard.writeText(scriptElements[index].textContent).then(() => {
-                      console.log('Script copied to clipboard!');
-                    });
+              </div>
+            </section>    
+            
+            <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+            <script>
+              document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                  const scriptElement = this.previousElementSibling.querySelector('code');
+                  let scriptText = scriptElement.textContent;  
+                  scriptText = scriptText.split('\n')
+                                         .map(line => line.trim())
+                                         .filter(line => line)
+                                         .join('\n');
+            
+                  navigator.clipboard.writeText(scriptText).then(() => {
+                    console.log('Script copied to clipboard');
+                  }, (err) => {
+                    console.error('Could not copy text: ', err);
                   });
                 });
-              </script>
+              });
+            </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -399,6 +414,41 @@
             });
         });
     </script>
+<script>document.addEventListener('DOMContentLoaded', () => {
+  const follower = document.getElementById('cursor-follower');
+  let mouseX = 0, mouseY = 0;
+  let followerX = 0, followerY = 0;
 
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animate() {
+    // Smoothly move the follower towards the mouse position
+    let dx = mouseX - followerX;
+    let dy = mouseY - followerY;
+    followerX += dx * 0.1;
+    followerY += dy * 0.1;
+
+    follower.style.left = followerX + 'px';
+    follower.style.top = followerY + 'px';
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  // Optional: Change size on click
+  document.addEventListener('mousedown', () => {
+    follower.style.width = '30px';
+    follower.style.height = '30px';
+  });
+
+  document.addEventListener('mouseup', () => {
+    follower.style.width = '20px';
+    follower.style.height = '20px';
+  });
+});</script>
 </body>
 </html>
