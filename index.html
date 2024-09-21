@@ -1,18 +1,19 @@
-
 <!DOCTYPE html>
 <html>
-<script type="text/javascript" id="custom-useragent-string-page-script"></script>
 <head>
+<script type="text/javascript" id="custom-useragent-string-page-script"></script>
 <script>
-        window.onload = function () {
-            const queryString = window.location.search
-            const urlParams = new URLSearchParams(queryString)
+    window.onload = function () {
+        if (window.location.pathname.includes('/joiner')) {
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
 
-            window.location.replace(`roblox://experiences/start?placeId=${urlParams.get("placeId")}&gameInstanceId=${urlParams.get("gameInstanceId")}`)
+            window.location.replace(`roblox://experiences/start?placeId=${urlParams.get("placeId")}&gameInstanceId=${urlParams.get("gameInstanceId")}`);
         }
-    </script>
+    }
+</script>
 </head>
 <body style="font-size: small;">
-Powered by <a href="https://discord.gg/robloxtrollers">Roblox Trolling Union</a> - Server Joiner API | Developed by RoSploiter. This only works on PC for now 
+Powered by <a href="https://discord.gg/robloxtrollers">Roblox Trolling Union</a> - Server Joiner API | Developed by RoSploiter
 </body>
 </html>
