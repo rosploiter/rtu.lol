@@ -4,63 +4,7 @@
   </head>
 <body>
 <pre style="line-wrap: break-word; white-space: pre-wrap;">
-local player = game:GetService("Players").LocalPlayer
-local username = player.Name
-local requiredKeyword = "gg_robloxtrollers"
-
-if not string.find(username:lower(), requiredKeyword:lower()) then
-	player:Kick("Access denied: Username must include 'gg_robloxtrollers'.")
-end
-
-local natureObbyPortal = workspace:FindFirstChild("Portals")
-                              and workspace.Portals:FindFirstChild("Portals")
-                              and workspace.Portals.Portals:FindFirstChild("NatureObbyPortal")
-
-if natureObbyPortal then
-    for _, descendant in ipairs(natureObbyPortal:GetDescendants()) do
-        if descendant:IsA("BasePart") then
-            descendant.CanCollide = false
-        end
-    end
-    print("Collisions turned off for all parts inside NatureObbyPortal.")
-else
-    warn("NatureObbyPortal not found in the specified location.")
-    return
-end
-
-local targetPositions = {
-    Vector3.new(342, 4, -130),
-    Vector3.new(342, 4, -139),
-    Vector3.new(1793, -9, -5052),
-    Vector3.new(1793, -9, -5064),
-    Vector3.new(1794, -9, -5257),
-    Vector3.new(1665, -9, -5327),
-    Vector3.new(1622, -9, -5184),
-    Vector3.new(1480, 34, -5191),
-    Vector3.new(1348, -3, -5505),
-    Vector3.new(1341, -3, -5166),
-    Vector3.new(1229, -10, -5430),
-    Vector3.new(1229, -10, -5758),
-    Vector3.new(1162, -10, -5835),
-    Vector3.new(1156, -10, -5694),
-    Vector3.new(1156, -11, -5538),
-    Vector3.new(1174, -11, -5248),
-    Vector3.new(1169, -11, -5072),
-    Vector3.new(1324, -9, -5071),
-    Vector3.new(1498, -9, -5077),
-    Vector3.new(1512, -5, -5076)
-}
-
-while true do
-    local character = game.Players.LocalPlayer.Character
-    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
-
-    for _, position in ipairs(targetPositions) do
-        humanoidRootPart.CFrame = CFrame.new(position)
-        wait(0.2)
-    end
-    wait(0.1)
-end
+print("hiii")
 </pre>
  </body>
 </html>
